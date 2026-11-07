@@ -1,0 +1,41 @@
+name: Render terminal
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/terminal.py
+      - .github/workflows/terminal.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: terminal
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Render assets/terminal.svg
+        run: python3 scripts/terminal.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          git add assets/terminal.svg
+          if git diff --cached --quiet; then
+            echo "terminal.svg unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh terminal"
+          git push
