@@ -1,0 +1,18 @@
+
+  Arthur Aktamirov (zaroc)
+  Computer engineering student, trained backend developer.
+  I write Linux desktop software in Rust and run everything on NixOS.
+
+  now      working student, nemetris GmbH
+  study    B.Eng. Computer Engineering, HS Albstadt-Sigmaringen
+  before   vocational training as backend developer (Java, C#, RPG IV)
+
+  rinka    living wallpapers for Wayland (Rust, wgpu, WebGPU)
+           nix run github:zaroc-dev/rinka/stable
+  yuki     desktop shell for niri (Quickshell, QML)
+  dotfiles the NixOS flake all my machines are built from
+
+  web      https://zaroc.de
+  github   https://github.com/zaroc-dev
+  linkedin https://www.linkedin.com/in/arthur-aktamirov/
+
